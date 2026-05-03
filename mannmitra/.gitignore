@@ -1,0 +1,6 @@
+# Local secrets
+.env
+server/.env
+client/.env
+Chatbot_/.env
+**/Manmitra mental health chatbot/.env

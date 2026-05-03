@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+/* Light wellness shell — cream base, subtle sage grid */
+.mm-app-shell {
+  @apply relative isolate min-h-screen overflow-x-hidden bg-wellness-cream text-slate-800;
+}
+
+.mm-app-shell::before {
+  content: "";
+  @apply pointer-events-none fixed inset-0 z-0;
+  background-image:
+    linear-gradient(rgba(94, 125, 94, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 125, 94, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.mm-app-shell::after {
+  content: "";
+  @apply pointer-events-none fixed inset-0 z-0;
+  background:
+    radial-gradient(
+      ellipse 90% 50% at 50% -10%,
+      rgba(233, 179, 155, 0.12),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 45% 40% at 100% 20%,
+      rgba(132, 161, 125, 0.1),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 40% 35% at 0% 80%,
+      rgba(94, 125, 94, 0.06),
+      transparent 50%
+    );
+}
+
+.gradient-bg {
+  @apply relative text-slate-800;
+}
+
+@layer components {
+  .mm-input {
+    @apply rounded-xl border border-stone-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400;
+    @apply focus:border-wellness-sage/40 focus:outline-none focus:ring-2 focus:ring-wellness-sage/20;
+  }
+  .mm-card {
+    @apply rounded-2xl border border-stone-200/90 bg-white p-4 shadow-sm;
+  }
+  .mm-card-soft {
+    @apply rounded-xl border border-stone-100 bg-wellness-paper/80 p-4;
+  }
+  .mm-btn-primary {
+    @apply rounded-full border border-wellness-sage/30 bg-wellness-sage px-4 py-2 text-sm font-semibold text-white shadow-sm transition;
+    @apply hover:bg-wellness-sage/90 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .mm-btn-secondary {
+    @apply rounded-full border border-stone-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition;
+    @apply hover:border-stone-400 hover:bg-stone-50 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .mm-btn-ghost {
+    @apply rounded-full border border-stone-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-stone-50;
+  }
+  .mm-btn-danger {
+    @apply rounded-full border border-red-200 bg-red-50 px-4 py-2 text-sm font-medium text-red-800 transition hover:bg-red-100;
+  }
+  .mm-btn-success {
+    @apply rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-900 transition hover:bg-emerald-100;
+  }
+  .mm-heading {
+    @apply text-2xl font-bold tracking-tight text-slate-900;
+  }
+  .mm-subtle {
+    @apply text-sm text-slate-600;
+  }
+  .mm-gradient-text {
+    @apply bg-gradient-to-r from-wellness-sage to-wellness-teal bg-clip-text font-semibold text-transparent;
+  }
+  .mm-badge {
+    @apply inline-flex items-center gap-2 rounded-full border border-wellness-sage/25 bg-wellness-sage/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-wellness-sage;
+  }
+}
